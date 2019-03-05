@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Lesson.h"
 
 @class TestLessonViewController;
 
@@ -14,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TestLessonViewController : UIViewController
 
-- (instancetype _Nonnull)init:(NSString *_Nonnull)lessonName;
+- (instancetype _Nonnull)init:(Lesson *_Nonnull)lesson;
 
 @end
 

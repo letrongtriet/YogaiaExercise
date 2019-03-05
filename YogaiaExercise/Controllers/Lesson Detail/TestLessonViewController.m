@@ -20,16 +20,19 @@
 @property (weak, nonatomic) IBOutlet PaddingLabel *levelLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *recommendationLabel;
+
+@property (strong, nonatomic) Lesson *lesson;
 @end
 
 @implementation TestLessonViewController
 
 #pragma mark - View controller life cycle
-- (instancetype _Nonnull)init:(NSString *_Nonnull)lessonName {
+- (instancetype _Nonnull)init:(Lesson *_Nonnull)lesson {
     self = [super init];
     if (self) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:[TestLessonViewController class]]];
         self = [sb instantiateViewControllerWithIdentifier:@"TestLessonViewController"];
+        self.lesson = lesson;
     }
     return self;
 }
@@ -37,11 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self customizeViews];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-//    [self.descriptionLabel setText:@"This is a very long text This is a very long text This is a very long text This is a very long text This is a very long text"];
+    [self populateLesson];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -75,6 +74,36 @@
     
     self.durationLabel.layer.cornerRadius = 8.0;
     self.levelLabel.layer.cornerRadius = 8.0;
+}
+
+- (void)populateLesson {
+    NSString *durationString = [NSString stringWithFormat:@"%@ min",[self.lesson.durationMinutes stringValue]];
+    
+    self.lessonTitle.text = self.lesson.name;
+    self.durationLabel.text = durationString;
+    self.descriptionLabel.text = self.lesson.lessonDescription;
+    self.recommendationLabel.text = @"Blocks recommended.";
+    
+    if ([self.lesson.level containsString:@"All"]) {
+        self.levelLabel.text = @"All levels";
+    } else {
+        self.levelLabel.text = [NSString stringWithFormat:@"Level %@",self.lesson.level];
+    }
+    
+    NSArray *array = [self.lesson.instructorName componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    array = [array filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF != ''"]];
+    
+    self.firstNameLabel.text = array[0];
+    self.lastNameLabel.text = array[1];
+    
+    dispatch_async(dispatch_get_global_queue(0,0), ^{
+        NSData *data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.lesson.instructorImageUrl]];
+        if ( data == nil )
+            return;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.profileImage.image = [UIImage imageWithData: data];
+        });
+    });
 }
 
 - (void)showComingSoonAlert {

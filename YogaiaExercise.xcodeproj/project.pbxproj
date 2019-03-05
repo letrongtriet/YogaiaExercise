@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8506D457222E66B50042B9EC /* Lesson.m in Sources */ = {isa = PBXBuildFile; fileRef = 8506D456222E66B50042B9EC /* Lesson.m */; };
 		857C35EC222D84AB00EC630F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 857C35EB222D84AB00EC630F /* AppDelegate.m */; };
 		857C35F2222D84AB00EC630F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857C35F0222D84AB00EC630F /* Main.storyboard */; };
 		857C35F4222D84AC00EC630F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 857C35F3222D84AC00EC630F /* Assets.xcassets */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8506D455222E66B50042B9EC /* Lesson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson.h; sourceTree = "<group>"; };
+		8506D456222E66B50042B9EC /* Lesson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lesson.m; sourceTree = "<group>"; };
 		857C35E7222D84AB00EC630F /* YogaiaExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YogaiaExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		857C35EA222D84AB00EC630F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		857C35EB222D84AB00EC630F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 				857C35F0222D84AB00EC630F /* Main.storyboard */,
 				857C35F3222D84AC00EC630F /* Assets.xcassets */,
 				857C35F5222D84AC00EC630F /* LaunchScreen.storyboard */,
+				8506D455222E66B50042B9EC /* Lesson.h */,
+				8506D456222E66B50042B9EC /* Lesson.m */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 				857C3605222D855F00EC630F /* TestLessonViewController.m in Sources */,
 				857C35FA222D84AC00EC630F /* main.m in Sources */,
 				857C35EC222D84AB00EC630F /* AppDelegate.m in Sources */,
+				8506D457222E66B50042B9EC /* Lesson.m in Sources */,
 				857C360D222D95E900EC630F /* PaddingLabel.m in Sources */,
 				857C3602222D851900EC630F /* LessonListViewController.m in Sources */,
 			);
