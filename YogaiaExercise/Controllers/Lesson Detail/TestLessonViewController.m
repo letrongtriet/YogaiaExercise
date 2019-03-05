@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *recommendationLabel;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @property (strong, nonatomic) Lesson *lesson;
 @end
 
@@ -39,6 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     [self customizeViews];
     [self populateLesson];
 }
